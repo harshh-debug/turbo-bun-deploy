@@ -1,1 +1,25 @@
-console.log("Hello via Bun!");
+import { prismaclient } from "@repo/db/client";
+const createUser = async () => {
+	await prismaclient.user.create({
+		data: {
+			username: Math.random().toString(),
+			password: Math.random.toString(),
+		},
+	});
+};
+Bun.serve({
+	port: 8081,
+	fetch(req, server) {
+		// upgrade the request to a WebSocket
+		if (server.upgrade(req)) {
+			return; // do not return a Response
+		}
+		return new Response("Upgrade failed", { status: 500 });
+	},
+	websocket: {
+		message(ws, message) {
+            createUser()
+			ws.send(message);
+		},
+	}, // handlers
+});

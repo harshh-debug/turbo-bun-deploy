@@ -43,6 +43,6 @@ app.post("/user", async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-	console.log("http backend listening at 3000");
+app.listen(8000, () => {
+	console.log("http backend listening at 8000");
 });

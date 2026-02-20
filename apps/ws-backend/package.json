@@ -2,6 +2,9 @@
   "name": "ws-backend",
   "module": "index.ts",
   "type": "module",
+  "dependencies": {
+    "@repo/db":"*"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },

@@ -42,7 +42,11 @@ app.post("/user", async (req, res) => {
         })
     }
 });
-
+app.get("/test",(req,res)=>{
+	return res.json({
+		message:"Server is running"
+	})
+})
 app.listen(8000, () => {
 	console.log("http backend listening at 8000");
 });
